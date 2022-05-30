@@ -1,2 +1,2 @@
-# tennis-emulator
+# Tennis emulator
 Tournament tennis emulator
