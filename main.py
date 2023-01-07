@@ -7,15 +7,15 @@ from bidi.algorithm import get_display
 
 def collect_data(plateNumber):
     ua = UserAgent()
-    # plateNumber = "9476837"
     headers = {'Content-Type': 'application/json',
             'Accept': 'application/json',
             'User-Agent': f'{ua}'}
     try:
         r = requests.get(f'https://www.find-car.co.il/car/private/{plateNumber}',headers=headers )
+
         soup = BeautifulSoup(r.text, 'html.parser')
         items = []
-        data = soup.find_all('div', class_ = ['flex flex_wrap table_conti base_details', 'flex flex_wrap table_conti important_details', 'flex flex_wrap table_conti more_details_tbl']  ) # 'flex flex_wrap table_conti base_details', 'flex flex_wrap table_conti important_details', 'flex flex_wrap table_conti more_details_tbl'
+        data = soup.find_all('div', class_ = ['flex flex_wrap table_conti base_details', 'flex flex_wrap table_conti important_details', 'flex flex_wrap table_conti more_details_tbl']  ) 
         if len(data) != 0:
             for row in data:
                 for tag in row.find_all('li'):
@@ -60,7 +60,7 @@ def collect_data_from_yad2(plateNumber):
 
 def main():
     items = collect_data("9476837")
-    # print(collect_data_from_yad2("9476837"))
+    print(items)
 
 
 if __name__ == "__main__":
