@@ -8,8 +8,6 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.utils.markdown import hbold
-from aiohttp import BasicAuth
-from aiogram.client.session.aiohttp import AiohttpSession
 from bidi import algorithm as bidialg
 import requests
 from settings import TOKEN
@@ -61,6 +59,7 @@ async def process_plateNumber(message: Message, state: FSMContext) -> None:
     user_input = message.text
     if re.match(regex, user_input):
         carData = collect_data(user_input)
+        # before need to save carData in json file
         # with open('data.json', 'r', encoding='utf-8') as outfile:
         #     carData = json.load(outfile)
         card = []
