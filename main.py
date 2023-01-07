@@ -59,8 +59,9 @@ def collect_data_from_yad2(plateNumber):
         return None
 
 def main():
-    items = collect_data("9476837")
-    print(items)
+    plateNumber = "HERE GOES YOUR PLATE NUMBER" # 7-8 digit number
+    data = collect_data(plateNumber)
+    print(data)
 
 
 if __name__ == "__main__":
